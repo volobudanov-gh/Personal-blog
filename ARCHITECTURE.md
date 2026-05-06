@@ -131,7 +131,9 @@
 2. Características Físicas
 3. Astrología
 4. Estilo de Vida
-5. Personalidad y Educación
+5. Educación y Profesión (+ подсекция Idiomas)
+6. Personalidad (+ подсекции Ценности и Черты характера)
+7. Mis Pasiones (+ 7 подсекций)
 
 #### Таблица: `profile_fields`
 Поля профиля с данными автора.
@@ -149,11 +151,85 @@
 | created_at | TIMESTAMP | Дата создания |
 
 **Текущие поля (20):**
-- Básica: nombre, edad, nacionalidad, ciudad, profesion
+- Básica: nombre, edad, nacionalidad, ciudad
 - Física: altura, peso, tipo_cuerpo, color_ojos, cabello
 - Astrología: signo_zodiaco_mes, signo_zodiaco_chino
 - Lifestyle: fumar, alcohol, estado_civil, situacion_vivienda, licencia_conducir, experiencia_relaciones_pasadas
-- Personalidad: tipo_personalidad, educacion
+- Educación y Profesión: educacion, profesion, licencia_conducir
+
+#### Таблица: `profile_languages` ✅ (подсекция в разделе 5)
+Языки владения профиля с уровнями.
+
+| Колонка | Тип | Описание |
+|---------|-----|---------|
+| id | BIGSERIAL | Уникальный ID |
+| language_id | BIGINT | Ссылка на язык (FK) |
+| proficiency_level_id | BIGINT | Ссылка на уровень владения (FK) |
+| section_id | BIGINT | Ссылка на раздел (FK = 5) |
+| subsection_name_es | TEXT | Название подсекции: "Idiomas" |
+| subsection_name_en | TEXT | Название подсекции: "Languages" |
+| order | INTEGER | Порядок в подсекции |
+
+**Текущие языки (5):**
+1. Украинский - Нативный
+2. Русский - Нативный
+3. Английский - Fluent
+4. Испанский - Intermediate
+5. Польский - Intermediate
+
+#### Таблица: `profile_values` ✅ (подсекция в разделе 6)
+Ценности профиля (30 позиций, выбрано 5).
+
+**Выбранные ценности Voldy:**
+1. Семья (Family)
+2. Доверие (Trust)
+3. Саморазвитие (Self-Development)
+4. Здоровье (Health)
+5. Баланс жизни (Life Balance)
+
+#### Таблица: `profile_character_traits` ✅ (подсекция в разделе 6)
+Черты характера профиля (30 позиций, выбрано 5).
+
+**Выбранные черты Voldy:**
+1. Амable (Kind)
+2. Sensible (Sensitive)
+3. Lógico (Logical)
+4. Optimista (Optimistic)
+5. Apasionado (Passionate)
+
+#### Таблица: `profile_passions` ✅ (новый раздел 7: "Mis Pasiones")
+Страсти и увлечения профиля (28 позиций по 7 подсекциям).
+
+**7 подсекций:**
+1. **Deporte** (Sports) - 6 позиций (Fitness, Tenis, Bádminton и т.д.)
+2. **Música** (Music) - 4 позиции (Karaoke, Canto, Eurovisión и т.д.)
+3. **Viajes** (Travel) - 6 позиций (45+ стран, Estambul, España и т.д.)
+4. **Arte** (Art) - 4 позиции (Cinematografía, Premios, Series, Arquitectura)
+5. **Tecnología** (Technology) - 3 позиции (IA, Cosmos, Analytics)
+6. **Naturaleza** (Nature) - 4 позиции (Senderismo, Barbacoa, Montañas, Mar)
+7. **Culinaria** (Culinary) - 5 позиций (Cocinar, Repostería, Mariscos, Sushi, Hosting)
+
+### Справочные таблицы ✅ (созданы)
+
+#### `languages`
+Справочник всех языков (5 языков).
+
+#### `proficiency_levels`
+Уровни владения языками (4 уровня: Native, Fluent, Intermediate, Basic).
+
+#### `values`
+Справочник всех ценностей (30 ценностей).
+
+#### `character_traits`
+Справочник всех черт характера (30 черт).
+
+#### `passions_subsections`
+Справочник подсекций страстей (7 подсекций: Deporte, Música, Viajes, Arte, Tecnología, Naturaleza, Culinaria).
+
+#### `passions`
+Справочник всех страстей (28 страстей по 7 подсекциям).
+
+---
 
 ### Планируемые таблицы (🔄 будут созданы)
 
@@ -413,10 +489,15 @@ SUPABASE_SERVICE_ROLE_KEY = "[service_role_key_from_supabase_settings]"
 - [x] Спроектирована структура БД
 - [x] Созданы SQL миграции
 - [x] Заполнены данные профиля Voldy (20 полей)
-- [x] Документирована архитектура
+- [x] Создана структура языков профиля (5 языков с уровнями)
+- [x] Создана структура ценностей (30 ценностей, выбрано 5)
+- [x] Создана структура черт характера (30 черт, выбрано 5)
+- [x] Создана структура страстей и увлечений (28 страстей по 7 подсекциям)
+- [x] Добавлены подсекции в разделах 5, 6 и новый раздел 7
+- [x] Документирована полная архитектура
 
 ### В процессе 🔄
-- [ ] Ничего (ждём инструкций)
+- [ ] Загрузка всех SQL миграций в GitHub
 
 ### Готово к началу 🚀
 - [ ] Инициализация Next.js проекта
