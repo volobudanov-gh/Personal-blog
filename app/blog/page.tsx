@@ -1,14 +1,12 @@
 export default function Blog() {
   return (
     <div style={{ maxWidth: '1200px' }}>
-      <div style={{ marginBottom: '22px' }}>
-        <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '6px' }}>
-          Blog
-        </h1>
-        <p style={{ fontSize: '14px', color: 'var(--text-2)', lineHeight: '1.55' }}>
-          Mis reflexiones, historias y pensamientos sobre la vida.
-        </p>
-      </div>
+      <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '6px' }}>
+        Blog
+      </h1>
+      <p style={{ fontSize: '14px', color: 'var(--text-2)', lineHeight: '1.55', marginBottom: '22px' }}>
+        Mis reflexiones, historias y pensamientos sobre la vida.
+      </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px' }}>
         {[
@@ -28,14 +26,6 @@ export default function Blog() {
               padding: '20px',
               cursor: 'pointer',
               transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)'
-              e.currentTarget.style.transform = 'translateY(-2px)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = 'none'
-              e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--purple-lt)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>

@@ -1,17 +1,11 @@
 export default function Contacto() {
   return (
     <div style={{ maxWidth: '1200px' }}>
-      <div style={{ marginBottom: '22px' }}>
-        <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '6px' }}>
-          Contacto
-        </h1>
-        <p style={{ fontSize: '14px', color: 'var(--text-2)', lineHeight: '1.55' }}>
-          ¿Quieres hablar conmigo? Aquí puedes dejar tu mensaje.
-        </p>
-      </div>
+      <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '22px' }}>
+        Contacto
+      </h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-        {/* Form */}
         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '14px', padding: '20px 22px' }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '16px' }}>
             Envía un mensaje
@@ -32,7 +26,6 @@ export default function Contacto() {
                   borderRadius: '8px',
                   color: 'var(--text-1)',
                   fontSize: '13px',
-                  fontFamily: "'DM Sans', sans-serif",
                 }}
               />
             </div>
@@ -52,7 +45,6 @@ export default function Contacto() {
                   borderRadius: '8px',
                   color: 'var(--text-1)',
                   fontSize: '13px',
-                  fontFamily: "'DM Sans', sans-serif",
                 }}
               />
             </div>
@@ -72,7 +64,6 @@ export default function Contacto() {
                   borderRadius: '8px',
                   color: 'var(--text-1)',
                   fontSize: '13px',
-                  fontFamily: "'DM Sans', sans-serif",
                   resize: 'none',
                 }}
               />
@@ -89,13 +80,6 @@ export default function Contacto() {
                 fontSize: '13px',
                 fontWeight: 600,
                 cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = '0.9'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = '1'
               }}
             >
               Enviar Mensaje
@@ -103,7 +87,6 @@ export default function Contacto() {
           </form>
         </div>
 
-        {/* Info */}
         <div>
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--purple)', borderRadius: '14px', padding: '20px 22px', marginBottom: '16px' }}>
             <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '4px' }}>
@@ -121,13 +104,6 @@ export default function Contacto() {
                 fontWeight: 500,
                 textDecoration: 'none',
                 borderBottom: '1px solid var(--purple)',
-                transition: 'all 0.15s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = '0.7'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = '1'
               }}
             >
               tu@email.com

@@ -34,11 +34,11 @@ export default function RootLayout({
   ]
 
   const navItems = [
-    { label: 'Inicio', href: '/', icon: '🏠', badge: null },
-    { label: 'Perfil', href: '/perfil', icon: '👤', badge: null },
-    { label: 'Blog', href: '/blog', icon: '📝', badge: '5' },
-    { label: 'Test', href: '/test', icon: '🧪', badge: null },
-    { label: 'Contacto', href: '/contacto', icon: '✉️', badge: null },
+    { label: 'Inicio', href: '/', icon: '🏠' },
+    { label: 'Perfil', href: '/perfil', icon: '👤' },
+    { label: 'Blog', href: '/blog', icon: '📝' },
+    { label: 'Test', href: '/test', icon: '🧪' },
+    { label: 'Contacto', href: '/contacto', icon: '✉️' },
   ]
 
   if (!mounted) return null
@@ -173,7 +173,6 @@ export default function RootLayout({
             color: inherit;
           }
 
-          /* ─── SIDEBAR ─────────────────────────────────── */
           .sidebar {
             position: fixed;
             top: 0;
@@ -261,15 +260,6 @@ export default function RootLayout({
             overflow-y: auto;
           }
 
-          .sidebar-nav::-webkit-scrollbar {
-            width: 4px;
-          }
-
-          .sidebar-nav::-webkit-scrollbar-thumb {
-            background: var(--border-md);
-            border-radius: 2px;
-          }
-
           .nav-item {
             display: flex;
             align-items: center;
@@ -306,38 +296,11 @@ export default function RootLayout({
             border-radius: 0 3px 3px 0;
           }
 
-          .nav-icon {
-            width: 17px;
-            height: 17px;
-            flex-shrink: 0;
-            opacity: 0.65;
-          }
-
-          .nav-item:hover .nav-icon,
-          .nav-item.active .nav-icon {
-            opacity: 1;
-          }
-
-          .nav-label {
-            flex: 1;
-          }
-
-          .nav-pill {
-            margin-left: auto;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 2px 7px;
-            border-radius: 10px;
-            background: var(--purple-dim);
-            color: var(--purple-lt);
-          }
-
           .sidebar-footer {
             padding: 14px 12px;
             border-top: 1px solid var(--border);
           }
 
-          /* ─── TOPBAR ────────────────────────────────── */
           .topbar {
             position: fixed;
             top: 0;
@@ -397,6 +360,7 @@ export default function RootLayout({
             transition: all 0.15s;
             color: var(--text-2);
             font-size: 16px;
+            padding: 0;
           }
 
           .topbar-btn:hover {
@@ -405,7 +369,6 @@ export default function RootLayout({
             color: var(--text-1);
           }
 
-          /* ─── THEME PICKER ─────────────────────────── */
           .theme-picker {
             position: relative;
           }
@@ -466,6 +429,7 @@ export default function RootLayout({
             border: 1px solid transparent;
             transition: all 0.15s;
             background: none;
+            font-family: inherit;
           }
 
           .theme-option:hover {
@@ -493,7 +457,6 @@ export default function RootLayout({
             font-weight: 600;
           }
 
-          /* ─── MAIN CONTENT ──────────────────────────── */
           .main {
             margin-left: var(--sidebar-w);
             margin-top: var(--topbar-h);
@@ -502,56 +465,23 @@ export default function RootLayout({
             overflow-y: auto;
           }
 
-          /* ─── RESPONSIVE ────────────────────────────── */
           @media (max-width: 900px) {
             .sidebar {
               transform: translateX(-100%);
               transition: transform 0.26s cubic-bezier(0.4, 0, 0.2, 1);
-              box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-              width: min(280px, 82vw);
-            }
-
-            .sidebar.open {
-              transform: translateX(0);
             }
 
             .topbar {
               left: 0;
-              padding: 0 14px;
-              gap: 10px;
             }
 
             .main {
               margin-left: 0;
-              padding: 18px 14px;
-            }
-
-            .topbar-date {
-              display: none;
-            }
-
-            .breadcrumb-root {
-              display: none;
-            }
-
-            .breadcrumb-sep {
-              display: none;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .main {
-              padding: 14px 10px;
-            }
-
-            .topbar {
-              padding: 0 10px;
             }
           }
         `}</style>
       </head>
       <body>
-        {/* SIDEBAR */}
         <aside className="sidebar">
           <div className="sidebar-logo">
             <div className="logo-row">
@@ -563,18 +493,15 @@ export default function RootLayout({
             </div>
           </div>
 
-          {/* NAV */}
           <nav className="sidebar-nav">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="nav-item active">
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-label">{item.label}</span>
-                {item.badge && <span className="nav-pill">{item.badge}</span>}
+                <span>{item.icon}</span>
+                <span>{item.label}</span>
               </Link>
             ))}
           </nav>
 
-          {/* FOOTER */}
           <div className="sidebar-footer">
             <button
               onClick={() => setThemeMenuOpen(!themeMenuOpen)}
@@ -590,23 +517,12 @@ export default function RootLayout({
                 fontFamily: "'DM Sans', sans-serif",
                 transition: 'all 0.15s',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-md)'
-                e.currentTarget.style.background = 'var(--bg-hover)'
-                e.currentTarget.style.color = 'var(--text-1)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)'
-                e.currentTarget.style.background = 'var(--bg-card)'
-                e.currentTarget.style.color = 'var(--text-2)'
-              }}
             >
               🎨 Temas
             </button>
           </div>
         </aside>
 
-        {/* TOPBAR */}
         <header className="topbar">
           <div className="topbar-breadcrumb">
             <span className="breadcrumb-root">Voldy</span>
@@ -639,7 +555,6 @@ export default function RootLayout({
           </div>
         </header>
 
-        {/* MAIN CONTENT */}
         <main className="main">{children}</main>
       </body>
     </html>

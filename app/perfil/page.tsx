@@ -1,22 +1,14 @@
 export default function Perfil() {
   return (
     <div style={{ maxWidth: '1200px' }}>
-      <div style={{ marginBottom: '22px' }}>
-        <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '6px' }}>
-          Mi Perfil
-        </h1>
-        <p style={{ fontSize: '14px', color: 'var(--text-2)', lineHeight: '1.55' }}>
-          Información detallada sobre quién soy y qué busco.
-        </p>
-      </div>
+      <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '26px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '22px' }}>
+        Mi Perfil
+      </h1>
 
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--purple)', borderRadius: '14px', padding: '20px 22px', marginBottom: '16px' }}>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '4px' }}>
+        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '14px' }}>
           Información Básica
         </h2>
-        <p style={{ fontSize: '12px', color: 'var(--text-3)', marginBottom: '14px' }}>
-          Detalles personales
-        </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
           {[
             { label: 'Nombre', value: 'Voldy' },
@@ -39,12 +31,9 @@ export default function Perfil() {
       </div>
 
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--cyan)', borderRadius: '14px', padding: '20px 22px' }}>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '4px' }}>
+        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: 'var(--text-1)', marginBottom: '14px' }}>
           Mis Valores
         </h2>
-        <p style={{ fontSize: '12px', color: 'var(--text-3)', marginBottom: '14px' }}>
-          Lo que es importante para mí
-        </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
           {['Familia', 'Honestidad', 'Crecimiento', 'Amor', 'Salud', 'Balance'].map((value) => (
             <div
